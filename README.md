@@ -1,17 +1,21 @@
 # HOME LIBRARY FASTAPI
 
-A REST API built with Python and FastAPI as a personal learning project.4
+A REST API built with Python and FastAPI as a personal learning project.
 
-The goal is to develop application for managing my home book, by tracking the book I have read, and keeping information about books and authors in one place.
+The goal is to develop application for managing my home books by tracking the books I have read, and keeping information about books and authors in one place.
 
 The project is being developed gradually  as I learn backend.
 
 ## Current Features
 
-Create, retrieve, update, and delete authors
-Search authors by first name and last name
-Store information about authors and their books
+Retrieve all books and retrieve a book by ID
+Search books by title
+Search books by author's first or last name
+Add new books to the collection
+Update a book's reading status, rating, and review
+Delete books from the collection
 Validate request data using Pydantic models
+Restrict reading status to read or unread
 Handle errors using HTTP status codes
 
 ## Technologies
@@ -39,17 +43,18 @@ Step-by-step instructions to get a local development environment running:
 
 ## Current Limitations
 
-Data is stored in an in-memory list and is lost when the application restarts.
-Books are currently stored as information associated with authors rather than as separate list/datatable.
+Book and author information is stored together in a book entry; authors are not managed as separate resources.
+Each book entry has one current reading status, rating, and review.
+The project does not yet use a database or automated tests.
 
 
 ## Planned Improvements
 
-Make books the main resource of the API
-Add the ability to track read and unread books
-Improve the relationship between books and authors
-Add a wishlist for books I want to buy
-Introduce a database for storage
+Database for persistent storage.
+Improve the relationship between books and authors.
+Add a wishlist for books I want to buy.
+Improve input validation and search behaviour.
+Add automated tests for API endpoints.
 
 
 ## Learning Goals
