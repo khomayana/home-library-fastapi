@@ -1,26 +1,31 @@
 # HOME LIBRARY FASTAPI
 
-A REST API built with Python and FastAPI as a personal learning project.
+A REST API built with Python, FastAPI and SQLModel as a personal learning project.
 
-The goal is to develop application for managing my home books by tracking the books I have read, and keeping information about books and authors in one place.
+The goal is to build an application for managing my home library by tracking books, recording reading progress, and keeping information about books and their authors in one place
 
-The project is being developed gradually  as I learn backend.
+The project is being developed gradually  as I learn backend, database integration, and API design.
 
 ## Current Features
 
-Retrieve all books and retrieve a book by ID
-Search books by title
-Search books by author's first or last name
-Add new books to the collection
-Update a book's reading status, rating, and review
-Delete books from the collection
-Validate request data using Pydantic models
-Restrict reading status to read or unread
-Handle errors using HTTP status codes
+Create, retrieve, update, and delete books.
+Create, retrieve, update, and delete authors.
+Retrieve a book or author by ID.
+Retrieve lists of books and authors.
+Associate books with authors using database relationships.
+Track reading status: unread, reading, or read.
+Store an optional rating from 0 to 5 and a written review for each book.
+Support partial updates using HTTP PATCH.
+Validate request data using SQLModel and Pydantic.
+Handle missing books and authors with HTTP 404 responses.
+Persist data in a SQLite database.
+Expose interactive API documentation through FastAPI.
 
 ## Technologies
 Python
 FastAPI
+SQLModel
+SQLite
 Pydantic
 uv for project and dependency management
 
@@ -41,20 +46,43 @@ Step-by-step instructions to get a local development environment running:
 3. Start the project
     uv run fastapi dev
 
+
+Data Model
+
+Book:
+
+Name
+Reading status
+Optional rating
+Optional review
+Optional author ID
+
+Author:
+First name
+Last name
+
+Books and authors are stored as separate database records. A foreign key connects each book to its author, while SQLModel relationships allow navigation between an author and their books.
+
+
 ## Current Limitations
 
-Book and author information is stored together in a book entry; authors are not managed as separate resources.
-Each book entry has one current reading status, rating, and review.
-The project does not yet use a database or automated tests.
+The API does not yet implement book search or filtering.
+Each book can be associated with at most one author.
+Authentication and authorization are not implemented.
+Automated tests are not yet implemented.
+Database schema migrations are not yet configured.
+Author deletion behavior when books reference that author still needs to be explicitly defined and tested.
 
 
 ## Planned Improvements
 
-Database for persistent storage.
-Improve the relationship between books and authors.
-Add a wishlist for books I want to buy.
-Improve input validation and search behaviour.
 Add automated tests for API endpoints.
+Implement search and filtering by book name and author.
+Define and test deletion behavior for related books and authors.
+Improve database relationship handling and validation.
+Add a wishlist for books I want to buy.
+Explore database migrations as the schema evolves.
+Improve project structure and error handling..
 
 
 ## Learning Goals
